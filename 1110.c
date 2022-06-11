@@ -4,7 +4,6 @@
 
 int main() {
     int n, cycle, check, k;
-    char name[51][51], output[51];
     scanf("%d", &n);
     if (n < 10)
         n *= 10;
