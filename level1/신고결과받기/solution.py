@@ -27,8 +27,6 @@ def solution(id_list, report, k):
                 result += 1
         answer.append(result)
 
-    print(answer)
-
     return answer
 
 

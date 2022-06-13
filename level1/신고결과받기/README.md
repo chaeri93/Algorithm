@@ -60,4 +60,5 @@ id_list	report	k	result
 ### Solution
 - Dictionary를 사용.
 - 첫번째 dictionary는 유저별 신고id를 저장.
-- 두번째 dictionary는 유저별 신고당한 횟수를 저장.
+- 두번째 dictionary는 유저별 신고당한 횟수를 저장.제
+- 
