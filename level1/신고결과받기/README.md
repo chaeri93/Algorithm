@@ -61,4 +61,22 @@ id_list	report	k	result
 - Dictionary를 사용.
 - 첫번째 dictionary는 유저별 신고id를 저장.
 - 두번째 dictionary는 유저별 신고당한 횟수를 저장.제
-- 
+- defaultdic(): 딕셔너리를 만드는 dict 클래스의 서브클래스이다. 작동하는 방식은 거의 동일한데, defualtdict()는 인자로 주어진 객체의 기본값을 딕셔너리값의 초기값으로 지정할 수 있다.
+  ```python
+  >>>from collections import defaultdict # 외부 함수이기 때문에 import 해주어야 한다.
+  >>>int_dict = defaultdict(int)
+  >>>int_dict
+  defaultdict(<class 'int'>, {}) # 디폴트 값이 int 인 딕셔너리
+   ```
+- set() : 집합에 관련된 것을 쉽게 처리하기 위해 만든 자료형
+  - 중복을 허용하지 않는다
+  - 순서가 없어서 인덱싱으로 값 접근 X -> 인덱싱으로 접근하려면 리스트/튜플로 변환 후 접근
+  - 예제
+  ```python
+  s1 = set([1,2,3])
+  # result : {1,2,3}
+  s2 = set("hello")
+  # result : {'o', 'h', 'l', 'e'}
+  ```
+  - 참고: [set() 이란](https://velog.io/@insutance/Python-set-%EC%9D%B4%EB%9E%80) 
+- list() : 데이터들을 잘 관리하기 위해서 묶어서 관리할 수 있는 자료형 
