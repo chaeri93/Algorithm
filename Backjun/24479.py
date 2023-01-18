@@ -1,7 +1,8 @@
 import sys
+
 sys.setrecursionlimit(10 ** 6)
 
-n,m,r= map(int,sys.stdin.readline().split())
+n, m, r = map(int, sys.stdin.readline().split())
 
 graph = [[] for _ in range(n + 1)]
 visited = [0] * (n + 1)
@@ -21,7 +22,7 @@ def dfs(graph, visited, v):
 
 
 for i in range(m):
-    u, v = map(int,sys.stdin.readline().split())
+    u, v = map(int, sys.stdin.readline().split())
     graph[u].append(v)
     graph[v].append(u)
 
