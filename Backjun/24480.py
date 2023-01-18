@@ -5,7 +5,6 @@ n, m, r = map(int, sys.stdin.readline().split())
 
 graph = [[] for _ in range(n + 1)]
 visited = [0] * (n + 1)
-result = [0] * (n + 1)
 cnt = 1
 
 
