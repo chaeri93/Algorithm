@@ -7,7 +7,6 @@ result = []
 cnt = 0
 for _ in range(n):
     graph.append(list(map(int, sys.stdin.readline().rstrip())))
-print(graph)
 
 dx = [0, 0, 1, -1]
 dy = [1, -1, 0, 0]
@@ -19,7 +18,7 @@ def dfs(x,y):
 
     if graph[x][y] == 1:
         cnt += 1
-        graph[x][y] == 0
+        graph[x][y] = 0
         for i in range(4):
             nx = x + dx[i]
             ny = y + dy[i]
