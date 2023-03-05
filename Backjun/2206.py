@@ -1,38 +1,38 @@
 import sys
 from collections import deque
 
-row, col = map(int, sys.stdin.readline().split())
-graph = [list(map(int, sys.stdin.readline())) for _ in range(row)]
-visited = [[[0] * 2 for _ in range(col)] for _ in range(row)]
-dx = [-1, 0, 1, 0]
-dy = [0, 1, 0, -1]
+n, m = map(int, sys.stdin.readline().split())
+graph = [list(map(int, sys.stdin.readline().rstrip())) for _ in range(n)]
+visited = [[[0] * 2 for _ in range(m)] for _ in range(n)]
+dx = [-1, 1, 0, 0]
+dy = [0, 0, -1, 1]
 
 
-def Bfs(start_x, start_y, iscrash, visited, graph):
+def Bfs(x, y, iscrash, visited, graph):
     #crash 0: 벽안부시고 가는경우, 1: 부신 경우
-    queue = deque()
-    queue.append((start_x, start_y, iscrash))
-    visited[start_x][start_y][iscrash] = 1
+    q = deque()
+    q.append((x, y, iscrash))
+    visited[x][y][iscrash] = 1
 
-    while queue:
-        cur_x, cur_y, iscrash = queue.popleft()
-        if cur_x == row - 1 and cur_y == col - 1:
-            return visited[cur_x][cur_y][iscrash]
+    while q:
+        x, y, iscrash = q.popleft()
+        if x == n - 1 and y == m - 1:
+            return visited[x][y][iscrash]
         for i in range(4):
-            next_x = cur_x + dx[i]
-            next_y = cur_y + dy[i]
+            nx = x + dx[i]
+            ny = y + dy[i]
 
-            if next_x <= -1 or next_x >= row or next_y <= -1 or next_y >= col:
+            if nx < 0 or nx >= n or ny < 0 or ny >= m:
                 continue
             # 벽 안부수고 이동
-            if graph[next_x][next_y] == 0 and visited[next_x][next_y][iscrash] == 0:
-                queue.append((next_x, next_y, iscrash))
-                visited[next_x][next_y][iscrash] = visited[cur_x][cur_y][iscrash] + 1
+            if graph[nx][ny] == 0 and visited[nx][ny][iscrash] == 0:
+                q.append((nx, ny, iscrash))
+                visited[nx][ny][iscrash] = visited[x][y][iscrash] + 1
             # 벽 부수고 이동
-            if graph[next_x][next_y] == 1 and iscrash == 0:
-                queue.append((next_x, next_y, iscrash + 1))
-                visited[next_x][next_y][iscrash + 1] = visited[cur_x][cur_y][iscrash] + 1
+            if graph[nx][ny] == 1 and iscrash == 1:
+                q.append((nx, ny, iscrash - 1))
+                visited[nx][ny][iscrash - 1] = visited[x][y][iscrash] + 1
 
     return -1
 
-print(Bfs(0, 0, 0, visited, graph))
+print(Bfs(0, 0, 1, visited, graph))
