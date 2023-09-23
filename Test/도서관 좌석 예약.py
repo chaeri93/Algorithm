@@ -11,6 +11,7 @@ def solution(s, e, N):
     e1 = e2 = -1
 
     for t in tmp:
+        print(t, e1, e2)
         if e1 <= t[0]:
             answer += 1
             e1 = t[1]
@@ -21,3 +22,10 @@ def solution(s, e, N):
 
     return answer
 
+
+if __name__ == '__main__':
+    n = int(input())
+    s = list(map(int,input().split(" ")))
+    e = list(map(int,input().split(" ")))
+    answer = solution(s, e, n)
+    print(answer)
