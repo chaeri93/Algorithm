@@ -17,6 +17,13 @@ def solution(s):
             answer += chr(ord('A') + cnt)
             cnt = 0
         else:
-            answer += 1
+            cnt += 1
     answer += chr(ord('A') + cnt)
     return answer
+
+
+
+if __name__ == '__main__':
+    s = input()
+    answer = solution(s)
+    print(answer)
