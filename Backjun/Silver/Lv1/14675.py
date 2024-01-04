@@ -4,21 +4,28 @@ input = sys.stdin.readline
 
 n = int(input())
 
-graph = [[] for i in range(n+1)]
+arr = list(map(int, input().split()))
+k = int(input())
 
-for i in range(n-1):
-    a, b = map(int, input().split())
-    graph[a].append(b)
-    graph[b].append(a)
+graph = [[] for _ in range(n)]
+for i in range(n):
+    if arr[i] != -1:
+        if i != k:
+            graph[arr[i]].append(i)
 
-q = int(input())
 
-for _ in range(q):
-    t, k = map(int, input().split())
-    if t == 1:
-        if len(graph[k]) < 2:
-            print("no")
-        else:
-            print("yes")
-    elif t == 2:
-        print("yes")
+def dfs(a):
+    while graph[a]:
+        x = graph[a].pop()
+        dfs(x)
+    graph[a].append(False)
+
+
+dfs(k)
+
+cnt = 0
+for i in range(n):
+    if not graph[i]:
+        cnt += 1
+
+print(cnt)
