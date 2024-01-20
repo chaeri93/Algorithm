@@ -1,9 +1,12 @@
 import heapq
+import sys
+
+input = sys.stdin.readline
 
 t = int(input())
 for _ in range(t):
     k = int(input())
-    visitied = [False] * 1000001
+    visitied = [False] * k
     min_heap, max_heap = [], []
     for i in range(k):
         order, number = input().split()
