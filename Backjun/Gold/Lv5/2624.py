@@ -4,7 +4,7 @@ input = sys.stdin.readline
 
 t = int(input())
 k = int(input())
-coin = [tuple(map(int, input().split())) for _ in range(n)]
+coin = [tuple(map(int, input().split())) for _ in range(k)]
 
 dp = [0] * (t + 1)
 dp[0] = 1
