@@ -33,4 +33,4 @@ for i in range(1, n+1):
 
 for i in range(len(result)):
     if max(result) == result[i]:
-        print(i + 1)
+        print(i + 1, end=" ")

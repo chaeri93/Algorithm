@@ -13,10 +13,10 @@ dy = [0, 0, -1, 1]
 
 
 def bfs(x, y):
-    queue = deque([(x,y)])
+    queue = deque([(x, y)])
 
     while queue:
-        x,y = queue.popleft()
+        x, y = queue.popleft()
         for i in range(4):
             nx = x + dx[i]
             ny = y + dy[i]
@@ -24,9 +24,9 @@ def bfs(x, y):
                 continue
             if graph[nx][ny] == 1:
                 graph[nx][ny] = graph[x][y] + 1
-                queue.append((nx,ny))
+                queue.append((nx, ny))
 
-    return graph[m-1][n-1]
+    return graph[m - 1][n - 1]
 
 
 print(bfs(0, 0))
