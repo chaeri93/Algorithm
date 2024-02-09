@@ -42,3 +42,4 @@ for i in range(N):
         else:
             print(visited[i][j], end=' ')
     print()
+    

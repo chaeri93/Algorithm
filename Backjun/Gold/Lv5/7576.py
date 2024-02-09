@@ -10,14 +10,15 @@ for i in range(n):
 
     for j in range(m):
         if graph[i][j] == 1:
-            q.append([i,j])
+            q.append([i, j])
 
-dx = [-1,1,0,0]
-dy = [0,0,-1,1]
+dx = [-1, 1, 0, 0]
+dy = [0, 0, -1, 1]
+
 
 def bfs():
     while q:
-        x,y = q.popleft()
+        x, y = q.popleft()
         for i in range(4):
             nx = x + dx[i]
             ny = y + dy[i]
@@ -25,7 +26,8 @@ def bfs():
                 continue
             if graph[nx][ny] == 0:
                 graph[nx][ny] = graph[x][y] + 1
-                q.append((nx,ny))
+                q.append((nx, ny))
+
 
 bfs()
 cnt = 0
@@ -36,4 +38,4 @@ for i in graph:
             exit(0)
     cnt = max(cnt, max(i))
 
-print(cnt-1)
+print(cnt - 1)
