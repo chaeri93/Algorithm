@@ -9,7 +9,7 @@ dy = [0, 0, -1, 1]
 
 
 def Bfs(x, y, iscrash, visited, graph):
-    #crash 0: 벽안부시고 가는경우, 1: 부신 경우
+    # crash 0: 벽안부시고 가는경우, 1: 부신 경우
     q = deque()
     q.append((x, y, iscrash))
     visited[x][y][iscrash] = 1
@@ -34,5 +34,6 @@ def Bfs(x, y, iscrash, visited, graph):
                 visited[nx][ny][iscrash - 1] = visited[x][y][iscrash] + 1
 
     return -1
+
 
 print(Bfs(0, 0, 1, visited, graph))
