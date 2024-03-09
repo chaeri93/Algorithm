@@ -16,7 +16,7 @@ def solution(n, record):
     idx = 0
     for s, alpha in record:
         idx = (idx - int(s)) % n
-        print(wheel, idx)
+        # print(wheel, idx)
         if wheel[idx] == alpha:
             continue
         if wheel[idx] != '?' or not alphabet[alpha]:
@@ -27,4 +27,4 @@ def solution(n, record):
     return ''.join(wheel[idx:] + wheel[:idx])
 
 
-solution(n, record)
+print(solution(n, record))
