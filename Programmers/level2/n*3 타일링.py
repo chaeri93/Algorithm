@@ -9,4 +9,7 @@ def solution(n):
     for i in range(4, n + 1, 2):
         dp[i] = dp[i-2] * 3
 
-        for j in range(i-4, )
+        for j in range(i-4, -1, -2):
+            dp[i] += dp[j] * 2
+        dp[i] %= MOD
+    return dp[n]
