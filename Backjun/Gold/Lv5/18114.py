@@ -5,6 +5,7 @@ input = sys.stdin.readline
 N, C = map(int, input().split())
 
 weight = list(map(int, input().split()))
+weight.sort()
 
 def binary(left, right, target):
     while left <= right:
@@ -28,7 +29,7 @@ def check():
         elif total > C:
             end -= 1
         else:
-            diff = total - C
+            diff = C - total
             if diff != weight[start] and diff != weight[end] and binary(start, end, diff):
                 return 1
             start += 1
